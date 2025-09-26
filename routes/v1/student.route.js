@@ -13,7 +13,7 @@ const {studentController} = require('../../controllers')
 const WeeklySchedule = require('../../models/weeklySchedule');
 const Attendance = require('../../models/attendance');
 const Student = require('../../models/student');
-
+router.get('/all',  studentController.getAllStudents)
 router.post('/login', async (req, res, next) => {
   try {
     const { rollNo, name } = req.body;

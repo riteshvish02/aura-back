@@ -22,3 +22,12 @@ exports.getstudent = catchAsyncError(async (req, res, next) => {
   SuccessResponse.message = "Student data fetched successfully";
   res.json({ SuccessResponse });
 });
+
+exports.getAllStudents = catchAsyncError(async (req, res, next) => {
+  const students = await Student.find();
+  const total = await Student.countDocuments();
+
+  SuccessResponse.data = { students, total };
+  SuccessResponse.message = "Student list and total count fetched successfully";
+  res.json({ SuccessResponse });
+});
